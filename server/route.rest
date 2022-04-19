@@ -1,0 +1,55 @@
+GET http://localhost:3001/subscribers
+
+###
+
+GET http://localhost:3001/subscribers/625dd4582b510f2540e7b0b5
+
+###
+
+POST http://localhost:3001/subscribers
+Content-Type: application/json
+
+{
+  "name": "new json who this?",
+  "subscribedToChannel": "WeB D Channel"
+}
+
+###
+
+POST http://localhost:3001/subscribers
+Content-Type: application/json
+
+{
+  "name": "mister j",
+  "subscribedToChannel": "jay haye"
+}
+
+###
+
+GET http://localhost:3001/forms
+
+###
+
+POST http://localhost:3001/forms
+Content-Type: application/json
+
+{
+  "id": "123",
+  "name": "fran",
+  "message": "go nuts no fuss",
+  "color": "green"
+}
+
+###
+
+DELETE  http://localhost:3001/forms/625ef65df55e2c3fa01f7b69
+
+
+###
+
+PATCH  http://localhost:3001/forms/625f15a0472278442f4a910f
+Content-Type: application/json
+
+{
+  "name": "bill2"
+}
