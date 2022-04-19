@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import logo from './logo.svg'
 import './App.css'
 import axios from 'axios'
+import ColorForm from './components/ColorForm'
 
 
 const api = axios.create({
