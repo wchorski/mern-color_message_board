@@ -1,5 +1,6 @@
 # mern-color_message_board
 cute n colorful messages to share with friends on a nodejs server
+*🏗 This App is still under construction*
 
 ### this project is for 
 0. learning MERN stack
@@ -7,6 +8,9 @@ cute n colorful messages to share with friends on a nodejs server
 0. creating / working with React Components
 0. making a REST API (models, routes, ect.)
 0. being more interesting than another 'todo list' clone
+
+# [ What it's worth ]
+0. create a message with title and color choice
 
 
 # [ SETUP 🛠 ]

@@ -75,7 +75,7 @@ async function getForms(req, res, next) {
   try {
     forms = await Forms.findById(req.params.id)
     if (forms == null) {
-      return res.status(404).json({ message: 'Cannot find form' })
+      return res.status(404).json({ message: 'Form does not exist' })
     }
   } catch (err) {
     return res.status(500).json({ message: err.message })
