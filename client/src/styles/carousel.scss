@@ -1,0 +1,17 @@
+.carousel-container{
+  // background-color: rgb(133, 133, 200);
+  height: 100vh;
+  width: 100vw;
+  overflow-y: scroll;
+  
+  > ul{
+    // background-color: rgba(0, 0, 255, 0.657);
+    list-style-type: none;
+    margin: 0;
+    padding: .3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

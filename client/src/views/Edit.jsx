@@ -4,6 +4,7 @@ import { FaEye } from 'react-icons/fa'
 
 import ColorFormFunc      from '../components/ColorFormFunc'
 import MessageBoard       from './MessageBoard'
+import Navbar             from '../components/Navbar'
 
 function Edit() {
 
@@ -15,6 +16,7 @@ function Edit() {
 
   return(
     <>
+      <Navbar/>
       <h1>Edit.jsx</h1>
 
       <ColorFormFunc />

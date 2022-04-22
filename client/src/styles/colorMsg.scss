@@ -2,6 +2,12 @@
   background-color: rgb(57, 85, 111);
   padding: 1rem;
   border-radius: 2rem;
+  min-width: 20rem;
+  // width: 60%;
+  height: 10px;
+
+  transition: 1s;
+  
 }
 .msgMeta{
   color: #666d7c;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
+import Navbar       from '../components/Navbar'
 import ColorMessage from '../components/ColorMessage'
-import ColorMessageCarousel from '../components/ColorMessageCarousel'
 
 import axios from 'axios'
 const api = axios.create({
@@ -69,8 +69,8 @@ class MessageBoard extends Component {
 
     return(
       <>
+        <Navbar/>
         <h1>./views/MessageBoard.jsx</h1>
-        <ColorMessageCarousel />
   
         <ul style={{listStyleType: 'none'}}>
 

@@ -11,6 +11,7 @@ function Navbar() {
           <li><a href="/">Home</a></li>
           <li><a href="/MessageBoard">MessageBoard</a></li>
           <li><a href="/Edit">Edit</a></li>
+          <li><a href="/Game">Game</a></li>
         </ul>
       </nav>
     </>
