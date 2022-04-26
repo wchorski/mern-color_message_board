@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { FaPlus } from 'react-icons/fa'
 import '../styles/colorForm.scss'
 
+
 import ColorMessage from './ColorMessage'
 
 import axios from 'axios'
@@ -15,23 +16,6 @@ const api = axios.create({
 
 const ColorFormFunc = () => {
 
-
-  // //TODO i do not understand this 
-  // const state = {
-  //   forms: []
-  // }
-
-  // const constructor = ( ) => {
-  // // super();
-  // state={
-  //   frontendData: []
-  // }
-  //   // this.getForms()
-  // }
-
-  // // componentDidMount(){
-  // //   this.getForms()
-  // // }
 
   const [DBMessageArray, setDBMessageArray] = useState([])
 

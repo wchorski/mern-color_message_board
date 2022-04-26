@@ -58,8 +58,8 @@ const ColorMessage = (props) => {
             <li className="msgMeta">{props.date}</li>
           </ul>
 
-          <button onClick={() => deleteForm(props._id)}> <FaTrashAlt/> </button>
-          <button onClick={() => patchForm(props._id, `${props.name}a`)}>a</button>
+          <button className='editBtn' onClick={() => deleteForm(props._id)}> <FaTrashAlt/> </button>
+          <button className='editBtn' onClick={() => patchForm(props._id, `${props.name}a`)}>a</button>
           
         </div>
       </div>

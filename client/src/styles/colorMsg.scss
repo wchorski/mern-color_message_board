@@ -3,24 +3,34 @@
   padding: 1rem;
   border-radius: 2rem;
   min-width: 20rem;
+  max-width: 80%;
   margin-bottom: .3rem;
   overflow: hidden;
+  transition: .7s;
+
+  &:hover{
+    opacity: .8;
+  }
+  &:hover button{
+    display: inline;
+  }
 
 }
 .msgMeta{
   color: #666d7c;
   font-size: 10px;
+  display: none;
 }
 
 
 .transition-enter{
   opacity: 0.09;
-  height: 20px;
+  // height: 20px;
   transform: scaleY(0.1);
 }
 .transition-enter-active{
   opacity: 1;
-  height: 200px;
+  // height: null;
   transform: scaleY(1.0);
   // transform: translate(0, 0);
   transition: all 1s ease-in;
@@ -43,5 +53,20 @@
   }
   100%{
     height: inherit;
+  }
+}
+
+.editBtn{
+  background-color: transparent;
+  color: rgb(57, 57, 57);
+  border: none;
+  cursor: pointer;
+  height: 2rem;
+  width: 2rem;
+  display: none;
+  
+  &:hover{
+    color: red;
+    outline: dashed red 1px;
   }
 }
