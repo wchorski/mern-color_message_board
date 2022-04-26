@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon server.js --ignore 'json/*.json'",
     "client": "cd ../client && npm start",
-    "start": "concurrently \"npm run dev\" \"npm run client\" ",
+    "start": "npm run dev",
+    "start2": "concurrently \"npm run dev\" \"npm run client\" ",
     "build": "react-scripts build"
   },
   "author": "",

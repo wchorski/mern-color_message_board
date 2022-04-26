@@ -1,5 +1,5 @@
 require('dotenv').config()
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 5000;
 //TODO MONGO DB FIX DOCKER COMPOSE
 const DATABASE_URL = process.env.DATABASE_URL || 'mongodb://localhost/myREST_db';
 // const DATABASE_URL = process.env.DATABASE_URL || 'mongodb://mongo:27017/myREST_db';
