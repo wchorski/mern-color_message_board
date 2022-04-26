@@ -36,3 +36,131 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* CSSTRANSITION TUT */
+/* CSSTRANSITION TUT */
+/* CSSTRANSITION TUT */
+/* CSSTRANSITION TUT */
+
+/* ------------- */
+/* Global Styles */
+/* ------------- */
+
+*, *:before, *:after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #5e3fde;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.btn-toggle:hover { background: #d0c7f7; }
+
+.game {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+/* ------------ */
+/* Title Screen */
+/* ------------ */
+
+.title-screen {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #ffbec6;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+
+.title-screen--appear { transform: scale(0.1); }
+.title-screen--appear-active { transform: scale(1); transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1); }
+
+.title-screen--exit-active { transform: rotateY(90deg) rotateX(45deg); transition: transform 0.8s cubic-bezier(0.5, 0, 0.75, 0); }
+
+/* ---------- */
+/* Game Board */
+/* ---------- */
+
+.game-board {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #020357;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.game-board__button {
+  width: 33%;
+  height: 33%;
+  background: transparent;
+  padding: 0;
+  border: 5px solid #25166c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.game-board__button:nth-child(-n + 3) { border-top: 0; height: 34%; }
+.game-board__button:nth-child(3n + 1) { border-left: 0; }
+.game-board__button:nth-child(3n + 3) { border-right: 0; width: 34%; }
+.game-board__button:nth-last-child(-n + 3) { border-bottom: 0; }
+
+.game-board__button:hover { background: #01023a; }
+
+.game-board--enter { transform: rotateY(90deg) rotateX(45deg); }
+.game-board--enter-active { transform: rotateY(0deg) rotateX(0deg); transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.game-board--enter-done { transform: rotateY(0deg) rotateX(0deg); }
+
+/* ----- */
+/* Icons */
+/* ----- */
+
+.icon {
+  width: 80px;
+  display: block;
+  cursor: pointer;
+}
+
+.icon:first-child { margin-right: 20px; }
+
+.icon__line {
+  fill: none;
+  stroke: #d9a2a9;
+  stroke-width: 20;
+  stroke-linecap: round;
+  stroke-miterlimit: 10;
+  transition: stroke 0.2s;
+}
+
+.icon:hover .icon__line { stroke: #ff6286; }
+
+/* CSSTRANSITION TUT */
+/* CSSTRANSITION TUT */
+/* CSSTRANSITION TUT */
+/* CSSTRANSITION TUT */

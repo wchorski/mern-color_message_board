@@ -75,10 +75,12 @@ class MessageBoard extends Component {
         <ul style={{listStyleType: 'none'}}>
 
           {this.state.forms.map((form, i ) => 
+
             <li key={i}>
               {/* //TODO use ..form */}
-              <ColorMessage name={form.name} message={form.message} color={form.color} _id={form._id} date={form.date} getForms={this.getForms}/>
+              <ColorMessage name={form.name} message={form.message} color={form.color} _id={form._id} date={form.date} getForms={this.getForms} clsNms='card'/>
             </li>
+  
           )}
         </ul>
       </>

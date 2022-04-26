@@ -10,7 +10,12 @@ const api = axios.create({
 
 const ColorMessage = (props) => {
 
-  const {_id, date, color, name, message, getForms} = props
+
+  useEffect(() => {
+    // console.log('1 ColorMessage.jsx mounted');
+  })
+
+  const {_id, date, color, name, message, getForms, clsNms='card'} = props
 
   ColorMessage.defaultProps = {
     _id: '000',
@@ -42,19 +47,21 @@ const ColorMessage = (props) => {
 
   return (
     <>
-      <div className='card' key={props._id} style={ {backgroundColor: props.color} }>
+      <div>
+        <div className={props.clsNms} key={props._id} style={ {backgroundColor: props.color} } id={props.classID}>
+          <h2>{props.name}</h2>
 
-        <h2>{props.name}</h2>
+          <p>{props.message}</p>
 
-        <p>{props.message}</p>
+          <ul>
+            <li className="msgMeta">{props._id}</li>
+            <li className="msgMeta">{props.date}</li>
+          </ul>
 
-        <ul>
-          <li className="msgMeta">{props._id}</li>
-          <li className="msgMeta">{props.date}</li>
-        </ul>
-
-        <button onClick={() => deleteForm(props._id)}> <FaTrashAlt/> </button>
-        <button onClick={() => patchForm(props._id, `${props.name}a`)}>a</button>
+          <button onClick={() => deleteForm(props._id)}> <FaTrashAlt/> </button>
+          <button onClick={() => patchForm(props._id, `${props.name}a`)}>a</button>
+          
+        </div>
       </div>
     </>
   )
