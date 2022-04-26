@@ -3,7 +3,7 @@ FROM node:16-slim
 WORKDIR /usr/src/app
 
 COPY ./package.json ./
-COPY ./npm.lock ./
+COPY ./package-lock.json ./
 
 RUN npm install
 
