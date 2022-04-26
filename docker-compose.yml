@@ -10,7 +10,7 @@ services:
       - mern-color-msgs-app
     volumes:
       - ./client/:/usr/src/app
-      - /usr/src/app/node_modules
+      # - /usr/src/app/node_modules
       
   api-server:
     container_name: mern-colormsgs-express
@@ -22,7 +22,7 @@ services:
       - mern-color-msgs-app
     volumes:
       - ./server/:/usr/src/app
-      - /usr/src/app/node_modules
+      # - /usr/src/app/node_modules
     depends_on:
       - mongo
       
