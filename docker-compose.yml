@@ -15,7 +15,7 @@ services:
   api-server:
     container_name: mern-colormsgs-express
     image: api-server
-    env_file: ./server/config/.env
+    env_file: ./server/.env
     ports:
       - "5000:5000"
     networks:
