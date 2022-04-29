@@ -17,7 +17,7 @@ const ColorMsgCarousel = () => {
   //? ######### MONGO DB ####################
   const getForms = async () => {
     let data = await api.get('/').then(({ data }) => data)
-    if(data === undefined || data.length == 0){
+    if(data === undefined || data.length === 0){
       console.log('no data in database')
 
       return this.setState({ forms: [{

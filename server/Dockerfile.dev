@@ -1,0 +1,16 @@
+FROM node
+
+LABEL version="0.0.1"
+LABEL description="dev image for MERN Color Messages"
+
+WORKDIR /app
+
+COPY ["./package.json", "./package-lock.json", "./"]
+
+RUN npm install && npm cache clean --force
+
+COPY . .
+
+EXPOSE 5000
+
+CMD [ "npm", "run", "webdev" ]

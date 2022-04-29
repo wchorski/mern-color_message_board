@@ -1,44 +1,91 @@
-version: "3"
+version: "3.9"
+
 services:
-  react-app:
-    container_name: mern-colormsgs-react
-    image: react-app
-    stdin_open: true
-    ports: 
-      - "3000:3000"
-    networks:
-      - mern-color-msgs-app
-    volumes:
-      - ./client/:/usr/src/app
-      - /usr/src/app/node_modules
-      
-  api-server:
-    container_name: mern-colormsgs-express
-    image: api-server
-    env_file: ./server/.env
-    ports:
-      - "5000:5000"
-    networks:
-      - mern-color-msgs-app
-    volumes:
-      - ./server/:/usr/src/app
-      - /usr/src/app/node_modules
-    depends_on:
-      - mongo
-      
-  mongo:
-    container_name: mern-colormsgs-mongo
-    image: mongo:latest
-    ports:
-      - "27017:27017"
-    networks:
-      - mern-color-msgs-app
-    volumes:
-      - mongo-data:/data/db
-      
+   clrmsg-server:
+      restart: always
+      build:
+         context: ./server
+         dockerfile: Dockerfile.dev
+      container_name: clrmsg_server
+      volumes:
+         - /app/node_modules
+         - ./server:/app
+      # ports:
+      #    - 5000:5000
+      depends_on:
+         - mongodb
+      environment:
+         NODE_ENV: ${NODE_ENV}
+         MONGO_URI: mongodb://${MONGO_ROOT_USERNAME}:${MONGO_ROOT_PASSWORD}@mongodb
+      networks:
+         - mern-colormsg-network
+
+   mongodb:
+      image: mongo
+      restart: always
+      ports:
+         - 27017:27017
+      environment:
+         MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME}
+         MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+      volumes:
+         # for persistence storage
+         - ${MONGODB_FILEPATH}:/data/db
+      networks:
+         - mern-colormsg-network
+
+      # mongo-express should only be used privately for development purposes.
+      # It helps us interact with a mongoDB database using our browser
+   mongo-express:
+      image: mongo-express
+      depends_on:
+         - mongodb
+      ports:
+         - 8081:8081
+      environment:
+         ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_ROOT_USERNAME}
+         ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_ROOT_PASSWORD}
+         ME_CONFIG_MONGODB_SERVER: mongodb
+         ME_CONFIG_BASICAUTH_USERNAME: admin
+         ME_CONFIG_BASICAUTH_PASSWORD: admin123456
+      volumes:
+         - ${MONGODB_FILEPATH}
+      networks:
+         - mern-colormsg-network
+
+   client:
+      restart: always
+      build:
+         context: ./client
+         dockerfile: Dockerfile.dev
+      container_name: clrmsg_client
+      volumes:
+         - ./app/node_modules
+         - ./client:/app
+      # ports:
+      #    - 3000:3000
+      depends_on:
+         - clrmsg-server
+      networks:
+         - mern-colormsg-network
+
+   nginx:
+      restart: always
+      depends_on:
+         - clrmsg-server
+         - client
+      build:
+         context: ./nginx
+         dockerfile: Dockerfile.dev
+      ports:
+         - 8080:80
+      networks:
+         - mern-colormsg-network
+
 networks:
-  mern-color-msgs-app:
-    driver: bridge
+   mern-colormsg-network:
+      driver: bridge
+
 volumes:
-  mongo-data:
-    driver: local
+   mongodb-data:
+      driver: local
