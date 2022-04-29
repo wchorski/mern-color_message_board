@@ -60,7 +60,7 @@ services:
          dockerfile: Dockerfile.dev
       container_name: clrmsg_client
       volumes:
-         - ./app/node_modules
+         - ${ROOT_DIR}/client/node_modules:/app/node_modules
          - ./client:/app
       # ports:
       #    - 3000:3000
